@@ -6,12 +6,14 @@
   <title>Shadow Call – Privacy Policy</title>
   <style>
     :root {
-      --bg-light: #f8f9fa;
+      --bg-light: #fffbf0;
       --text-light: #212529;
-      --header-bg-light: #007bff;
+      --header-bg-light: #f59e0b;
       --bg-dark: #121212;
       --text-dark: #f1f1f1;
-      --header-bg-dark: #1a73e8;
+      --header-bg-dark: #d97706;
+      --accent: #f59e0b;
+      --accent-dark: #fbbf24;
     }
 
     body {
@@ -66,13 +68,13 @@
     }
 
     h2, h3 {
-      color: #007bff;
+      color: #d97706;
       margin-top: 2rem;
       transition: color 0.3s;
     }
 
     body.dark h2, body.dark h3 {
-      color: #66aaff;
+      color: #fbbf24;
     }
 
     ul {
@@ -90,7 +92,7 @@
     }
 
     a {
-      color: #007bff;
+      color: #d97706;
       text-decoration: none;
     }
 
@@ -137,7 +139,35 @@
     }
 
     nav ul li a:hover {
-      color: #007bff;
+      color: #d97706;
+    }
+
+    .permission-block {
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      border-radius: 4px;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+    }
+
+    body.dark .permission-block {
+      background: #2a1f00;
+      border-left-color: #fbbf24;
+    }
+
+    .permission-block strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .permission-block .perm-note {
+      font-size: 0.9rem;
+      color: #555;
+      font-style: italic;
+    }
+
+    body.dark .permission-block .perm-note {
+      color: #aaa;
     }
 
     .disclaimer {
@@ -158,14 +188,24 @@
       border: none;
       border-radius: 6px;
       cursor: pointer;
-      background: #007bff;
+      background: #f59e0b;
       color: white;
       font-weight: bold;
       z-index: 1000;
     }
 
     body.dark .toggle-btn {
-      background: #1a73e8;
+      background: #d97706;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dee2e6;
+      margin: 2rem 0;
+    }
+
+    body.dark hr {
+      border-top-color: #333;
     }
   </style>
 </head>
@@ -179,7 +219,7 @@
   </header>
 
   <main>
-    <p>This Privacy Policy explains how <strong>Shadow Call</strong> (“the App”) handles information when you use our fake call and call simulation features. Shadow Call is published by <strong>Apllex</strong> (“we”, “our”, or “us”) and is designed to simulate realistic phone calls for privacy, social comfort, and planned interruption scenarios. It does <strong>not</strong> provide real telephony or VoIP services.</p>
+    <p>This Privacy Policy explains how <strong>Shadow Call</strong> ("the App") handles information when you use our fake call and call simulation features. Shadow Call is published by <strong>Apllex</strong> ("we", "our", or "us") and is designed to simulate realistic phone calls for privacy, social comfort, and planned interruption scenarios. It does <strong>not</strong> provide real telephony or VoIP services.</p>
     <p>By installing or using Shadow Call, you agree to the practices described in this Privacy Policy.</p>
 
     <h2>Table of Contents</h2>
@@ -189,119 +229,242 @@
         <li><a href="#overview">1. Overview – Key Points</a></li>
         <li><a href="#information">2. Information We Collect and How We Use It</a></li>
         <ul>
-          <li><a href="#info-provided">• Information You Provide</a></li>
-          <li><a href="#permissions">• Information from Device Permissions</a></li>
-          <li><a href="#auto-collected">• Automatically Collected Information</a></li>
+          <li><a href="#info-provided">2.1 Information You Provide</a></li>
+          <li><a href="#permissions">2.2 Information from Device Permissions</a></li>
+          <li><a href="#auto-collected">2.3 Automatically Collected Information</a></li>
         </ul>
         <li><a href="#in-app-purchases">3. In-App Purchases</a></li>
         <li><a href="#third-party">4. Third-Party Services and Data Sharing</a></li>
         <li><a href="#storage">5. Data Storage, Retention, and Security</a></li>
         <li><a href="#choices">6. Your Choices and Controls</a></li>
-        <li><a href="#children">7. Children’s Privacy</a></li>
+        <li><a href="#children">7. Children's Privacy</a></li>
         <li><a href="#international">8. International Users</a></li>
         <li><a href="#changes">9. Changes to This Privacy Policy</a></li>
         <li><a href="#contact">10. Contact Us</a></li>
-        <li><a href="#license">11. License</a></li>
       </ul>
     </nav>
 
     <h2 id="overview">1. Overview – Key Points</h2>
     <ul>
-      <li><strong>No account required:</strong> No account or sign-in needed.</li>
-      <li><strong>Data stored locally:</strong> Caller profiles, schedules, and settings are stored on your device (<code>SharedPreferences</code>).</li>
-      <li><strong>No real call routing:</strong> Uses Android Telecom APIs for simulation only.</li>
-      <li><strong>Limited personal data use:</strong> Only to provide fake call and dialer simulation.</li>
-      <li><strong>Third-party services:</strong> Google AdMob (ads) and Google Play Billing (in-app purchases) may collect and process data under their own policies.</li>
+      <li><strong>No account required:</strong> We do not require you to create an account or sign in.</li>
+      <li><strong>Data stored mainly on your device:</strong> Caller profiles, schedules, and app settings are stored locally on your device using local storage (such as <code>SharedPreferences</code>).</li>
+      <li><strong>No real call routing:</strong> The App uses Android's Telecom APIs and local simulation only. It does not route real calls through servers.</li>
+      <li><strong>Limited use of personal data:</strong> Personal information (like contact names or numbers) is used only to provide fake call and dialer simulation features.</li>
+      <li><strong>Third-party services:</strong> We use services such as <strong>Google AdMob</strong> (ads) and <strong>Google Play Billing</strong> (in-app purchases). These services may collect and process data under their own privacy policies.</li>
     </ul>
+
+    <hr>
 
     <h2 id="information">2. Information We Collect and How We Use It</h2>
 
-    <h3 id="info-provided">Information You Provide</h3>
-    <ul>
-      <li><strong>Caller profiles and presets:</strong> Data: fake caller name, number, optional photo/label. Use: generate realistic fake calls. Stored locally.</li>
-      <li><strong>Scheduled call details:</strong> Data: caller profile, schedule time, repeat mode, alarm IDs. Use: trigger fake calls. Stored locally and in Android alarm storage.</li>
-      <li><strong>App settings and preferences:</strong> Data: vibration, auto-answer/hangup, ringtone, SIM labels. Use: control behavior and display. Stored locally.</li>
-      <li><strong>Custom audio / text-to-speech:</strong> Data: audio recordings, TTS text. Use: playback during fake calls. Stored locally; not uploaded.</li>
-    </ul>
-    <p><em>Data is processed only to provide App features and is never sold.</em></p>
+    <h3 id="info-provided">2.1 Information You Provide</h3>
 
-    <h3 id="permissions">Information from Device Permissions</h3>
     <ul>
-      <li><strong>Phone & call-related</strong> (<code>READ_PHONE_STATE</code>, <code>MANAGE_OWN_CALLS</code>): register/manage fake call account, display system call UI, manage call lifecycle.</li>
-      <li><strong>Call log</strong> (<code>READ_CALL_LOG</code>, <code>WRITE_CALL_LOG</code>): optionally insert fake calls for realistic call history.</li>
-      <li><strong>Contacts</strong> (<code>READ_CONTACTS</code>): suggest contacts for fake caller profiles.</li>
-      <li><strong>Exact alarm</strong> (<code>SCHEDULE_EXACT_ALARM</code>, <code>RECEIVE_BOOT_COMPLETED</code>): schedule fake calls and restore alarms after reboot.</li>
-      <li><strong>Foreground service / notifications</strong> (<code>FOREGROUND_SERVICE</code>, <code>POST_NOTIFICATIONS</code>): run background services and show call notifications.</li>
+      <li>
+        <strong>Caller profiles and presets</strong><br>
+        <em>Data:</em> Fake caller name, phone number, optional photo, optional label.<br>
+        <em>Use:</em> To generate believable fake incoming calls and caller presets.<br>
+        <em>Storage:</em> Saved locally on your device.
+      </li>
+      <li>
+        <strong>Scheduled call details</strong><br>
+        <em>Data:</em> Caller profile, scheduled time, repeat mode, and internal alarm identifiers.<br>
+        <em>Use:</em> To schedule and trigger fake incoming calls at the times you choose.<br>
+        <em>Storage:</em> Saved locally on your device and in Android alarm storage to work across app restarts and reboots.
+      </li>
+      <li>
+        <strong>App settings and preferences</strong><br>
+        <em>Data:</em> Vibration preference, auto-answer timer, auto-hangup timer, ringtone selection, SIM-slot display label, and similar configuration options.<br>
+        <em>Use:</em> To control how fake calls behave and how the App is displayed.<br>
+        <em>Storage:</em> Saved locally on your device.
+      </li>
+      <li>
+        <strong>Custom audio and text-to-speech</strong> (if you use those features)<br>
+        <em>Data:</em> Audio you record (e.g., for custom ringtones or call audio) and text you enter for text-to-speech playback.<br>
+        <em>Use:</em> To play your chosen audio or synthesized voice during fake calls.<br>
+        <em>Storage:</em> Stored locally on your device. We do not upload this audio to our own servers.
+      </li>
     </ul>
-    <p><em>Permissions can be granted or revoked anytime via Android settings.</em></p>
+    <p><em>We process this information only to provide the App's core features and do not sell it.</em></p>
 
-    <h3 id="auto-collected">Automatically Collected Information</h3>
+    <h3 id="permissions">2.2 Information from Device Permissions</h3>
+    <p>To provide realistic fake call behavior, Shadow Call requests several Android permissions. Depending on your Android version, some are granted at install time and others via runtime prompts. You can change permissions at any time in your device settings, but some features may stop working or become less reliable.</p>
+    <p>We use permissions only for the purposes described below:</p>
+
+    <div class="permission-block">
+      <strong>Phone &amp; call-related permissions</strong>
+      <em>Examples: <code>READ_PHONE_STATE</code>, <code>MANAGE_OWN_CALLS</code>, Telecom / calling account related capabilities.</em>
+      <ul>
+        <li>To register and manage a phone account for fake calls through Android Telecom.</li>
+        <li>To display incoming call UI using the system's call screen.</li>
+        <li>To manage the lifecycle of simulated calls (ringing, answered, ended).</li>
+      </ul>
+      <span class="perm-note">Note: Shadow Call does <strong>not</strong> place real cellular calls and does not use <code>CALL_PHONE</code>.</span>
+    </div>
+
+    <div class="permission-block">
+      <strong>Call log permissions</strong>
+      <em>Examples: <code>READ_CALL_LOG</code>, <code>WRITE_CALL_LOG</code>.</em>
+      <ul>
+        <li>To optionally insert entries into the system call log for fake incoming and outgoing calls, when supported and permitted by your device.</li>
+        <li>To provide a more realistic call history experience.</li>
+      </ul>
+      <span class="perm-note">Note: If you deny these permissions, fake calls may not appear in your system call log.</span>
+    </div>
+
+    <div class="permission-block">
+      <strong>Contacts permission</strong>
+      <em>Example: <code>READ_CONTACTS</code> (read-only).</em>
+      <ul>
+        <li>To suggest contacts and numbers from your address book inside the dialer simulation.</li>
+        <li>To allow you to quickly select existing contacts for fake caller profiles or outgoing simulations.</li>
+      </ul>
+      <span class="perm-note">Contact data is read as needed and is not uploaded to our servers. Shadow Call does <strong>not</strong> modify or write to your contacts.</span>
+    </div>
+
+    <div class="permission-block">
+      <strong>Microphone permission</strong>
+      <em>Example: <code>RECORD_AUDIO</code>.</em>
+      <ul>
+        <li>To record optional custom voice audio for conversation simulation during fake calls.</li>
+      </ul>
+      <span class="perm-note">Recordings are stored locally on your device and are not uploaded to our servers.</span>
+    </div>
+
+    <div class="permission-block">
+      <strong>Exact alarm and scheduling permissions</strong>
+      <em>Examples: <code>SCHEDULE_EXACT_ALARM</code>, <code>RECEIVE_BOOT_COMPLETED</code>.</em>
+      <ul>
+        <li>To schedule fake calls at exact times, including while the device is idle.</li>
+        <li>To restore scheduled fake calls after a device reboot where supported by the system.</li>
+      </ul>
+    </div>
+
+    <div class="permission-block">
+      <strong>Foreground service and notification permissions</strong>
+      <em>Examples: <code>FOREGROUND_SERVICE</code>, <code>FOREGROUND_SERVICE_PHONE_CALL</code>, <code>POST_NOTIFICATIONS</code>.</em>
+      <ul>
+        <li>To run foreground services necessary to reliably trigger fake calls in the background.</li>
+        <li>To show notifications when a call is scheduled or when a foreground service is active, as required by Android.</li>
+      </ul>
+    </div>
+
+    <h3 id="auto-collected">2.3 Automatically Collected Information</h3>
+    <p>When you use Shadow Call, some technical information may be collected automatically:</p>
     <ul>
-      <li><strong>On-device technical data:</strong> Logs of schedules, errors, call states. Stored locally for debugging/reliability.</li>
-      <li><strong>Third-party analytics / ads (Google AdMob):</strong> device identifiers, approximate location, ad interactions. Processed per third-party privacy policies.</li>
+      <li>
+        <strong>On-device technical data:</strong> The App may internally track logs (e.g., events related to schedules, errors, or call simulation state) to ensure correct behavior. These logs are stored locally and are primarily for debugging and reliability.
+      </li>
+      <li>
+        <strong>Third-party analytics and advertising data:</strong> Through SDKs such as <strong>Google Mobile Ads (AdMob)</strong>, limited usage and device information may be collected automatically, such as:
+        <ul>
+          <li>Device identifiers (e.g., advertising ID)</li>
+          <li>Approximate location (e.g., based on IP)</li>
+          <li>App interactions (e.g., ad impressions, clicks)</li>
+        </ul>
+        This data is processed by those third parties according to their own privacy policies (see Section 4).
+      </li>
     </ul>
-    <p><em>No backend server tracks usage across devices.</em></p>
+    <p><em>We do <strong>not</strong> maintain our own backend server for tracking your usage across devices.</em></p>
+
+    <hr>
 
     <h2 id="in-app-purchases">3. In-App Purchases</h2>
+    <p>Shadow Call may offer <strong>in-app purchases</strong> (for example, to remove ads or unlock premium features) using <strong>Google Play Billing</strong>.</p>
     <ul>
-      <li>Uses <strong>Google Play Billing</strong> for ad removal or premium features.</li>
-      <li>Google may process purchase tokens, order details, basic Google account info.</li>
-      <li>We receive only purchase success/failure info. Payment details are not shared.</li>
+      <li>Google Play may process:
+        <ul>
+          <li>Purchase tokens</li>
+          <li>Order details</li>
+          <li>Basic information related to your Google account (for payment processing)</li>
+        </ul>
+      </li>
+      <li>We receive limited purchase information (such as whether a purchase was successful) to unlock features and restore purchases.</li>
+      <li>Payment information (such as credit card details) is <strong>not</strong> shared with us and is handled only by Google.</li>
     </ul>
-    <p>See <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+    <p>See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> for more information on how they handle purchase data.</p>
+
+    <hr>
 
     <h2 id="third-party">4. Third-Party Services and Data Sharing</h2>
+    <p>We may share limited information with third-party service providers to operate and improve the App:</p>
     <ul>
-      <li><strong>Google AdMob:</strong> Ads, may use device identifiers.</li>
-      <li><strong>Google Play Services / Billing:</strong> App distribution, crash reporting, secure purchases.</li>
+      <li>
+        <strong>Google Mobile Ads (AdMob):</strong> Used to display advertisements within the App. AdMob may use device identifiers and other information to provide, personalize, and measure ads, subject to your device settings and applicable law.
+      </li>
+      <li>
+        <strong>Google Play Services / Google Play Billing:</strong> Used for app distribution, crash reporting (if enabled by Google Play), and secure processing of in-app purchases.
+      </li>
     </ul>
-    <p>Third parties are independent controllers. We do not sell personal data. Disclosure only as required by law or to protect rights.</p>
+    <p>These third parties act as independent data controllers for certain processing activities. For details on their practices, please refer to their privacy policies — Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></p>
+    <p>We do <strong>not</strong> sell your personal data. We may disclose information only:</p>
+    <ul>
+      <li>When required by law, court order, or legal process.</li>
+      <li>To protect our rights, property, or safety, or those of users or others.</li>
+    </ul>
+
+    <hr>
 
     <h2 id="storage">5. Data Storage, Retention, and Security</h2>
     <ul>
-      <li>Local storage: caller profiles, schedules, settings, logs.</li>
-      <li>Retention: only as needed for app functionality or legal obligations.</li>
-      <li>Security: reasonable measures; absolute security cannot be guaranteed.</li>
+      <li>
+        <strong>Local storage on your device:</strong> Caller profiles, schedules, app settings, and most logs are stored locally on your device. If you uninstall the App, this locally stored data is generally removed by the operating system. Some call log entries written to the system call log (if you enabled that feature) may remain as part of your device's call history.
+      </li>
+      <li>
+        <strong>Retention:</strong> We retain information only as long as necessary to provide the App's features, comply with legal obligations, resolve disputes, or enforce our agreements.
+      </li>
+      <li>
+        <strong>Security:</strong> We implement reasonable technical and organizational measures designed to protect data processed by the App. However, no mobile application or online service can guarantee absolute security.
+      </li>
     </ul>
+
+    <hr>
 
     <h2 id="choices">6. Your Choices and Controls</h2>
     <ul>
-      <li>Permissions: grant/revoke via Android settings; revoking may reduce features.</li>
-      <li>Local data management: delete presets/schedules or uninstall app.</li>
-      <li>Ads: may opt out of personalized ads if options are available.</li>
+      <li>
+        <strong>Permissions:</strong> You can grant or revoke individual permissions (e.g., Contacts, Call Log, Phone) at any time through your Android system settings. Revoking certain permissions may reduce the realism or functionality of fake calls (for example, disabling Contacts access will prevent contact suggestions).
+      </li>
+      <li>
+        <strong>Managing local data:</strong> You can delete caller presets and schedules from within the App's UI. You can uninstall the App at any time to remove its local data. System call log entries previously written (if allowed) may need to be removed through your device's call log interface.
+      </li>
+      <li>
+        <strong>Ads and personalized advertising:</strong> Depending on your region and device, you may see options in the App or in your system settings to control ad personalization (for example, <strong>"Opt out of Ads Personalization"</strong> or similar). For more detailed controls, consult your device settings and Google's privacy controls.
+      </li>
     </ul>
 
-    <h2 id="children">7. Children’s Privacy</h2>
-    <p>Not intended for children under 13 (or local minimum age). Contact us to delete any collected data.</p>
+    <hr>
+
+    <h2 id="children">7. Children's Privacy</h2>
+    <p>Shadow Call is <strong>not intended for children under 13 years of age</strong>, or the minimum age required in your country for consent to data processing. We do not knowingly collect personal information from children under this age.</p>
+    <p>If you believe a child under the applicable age has provided personal information through the App, please contact us so we can take appropriate steps to delete such information where required.</p>
+
+    <hr>
 
     <h2 id="international">8. International Users</h2>
-    <p>Using the app outside your country may involve global data processing, including by Google. Use implies consent under local laws.</p>
+    <p>Shadow Call is primarily targeted at users in regions where the Google Play Store is available. If you use the App from outside your country of residence, your information may be processed in the country where you use the App and by third-party providers that may operate globally (for example, Google).</p>
+    <p>Your use of the App signifies your consent to such processing in accordance with this Privacy Policy and applicable local laws.</p>
+
+    <hr>
 
     <h2 id="changes">9. Changes to This Privacy Policy</h2>
-    <p>Updates may reflect app features, laws/regulations, or third-party services. Continued use indicates acceptance.</p>
+    <p>We may update this Privacy Policy from time to time, for example to reflect changes in:</p>
+    <ul>
+      <li>The App's features</li>
+      <li>Applicable laws or regulations</li>
+      <li>Our data practices or use of third-party services</li>
+    </ul>
+    <p>When we make changes, we will update the "Last updated" date at the top of this document. In some cases, we may also provide additional notice (such as an in-app message).</p>
+    <p>Your continued use of Shadow Call after any changes to this Privacy Policy signifies your acceptance of the updated terms.</p>
+
+    <hr>
 
     <h2 id="contact">10. Contact Us</h2>
-    <p>Email: <a href="mailto:support@apllex.com">support@apllex.com</a></p>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or Shadow Call, you can contact us at:</p>
+    <p><strong>Email:</strong> <a href="mailto:apllex366@gmail.com">apllex366@gmail.com</a></p>
+    <p>If this email address changes or is not yet active, please refer to the contact information provided on your Shadow Call listing on the Google Play Store.</p>
 
-    <h2 id="license">11. License</h2>
-    <pre>
-MIT License
-Copyright (c) 2026 Apllex
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this document, to deal in the Software without restriction, including without
-limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
-and/or sell copies of this document, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of this document.
-
-THE DOCUMENT IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-    </pre>
-
-    <p class="disclaimer">This document is for informational purposes and does not constitute legal advice. For compliance with GDPR, CCPA, or local laws, consult qualified legal counsel.</p>
+    <p class="disclaimer">This document is provided for informational purposes only and does not constitute legal advice. For compliance with specific laws (such as GDPR, CCPA, or region-specific regulations), you should review this policy with qualified legal counsel.</p>
   </main>
 
   <script>
